@@ -1,0 +1,12 @@
+
+^
+java:S1192"HDefine a constant instead of duplicating this literal "Bhavesh" 4 times.(ìÄÜ²
+k
+java:S3655"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(’÷í¿üÿÿÿÿ
+f
+java:S3655"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(¼¥ä®
+S	java:S106"9Replace this use of System.out or System.err by a logger.(·‹îûÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(´áˆ¦
+S	java:S106 "9Replace this use of System.out or System.err by a logger.(Ñ½Ãšøÿÿÿÿ
+N	java:S106("9Replace this use of System.out or System.err by a logger.(ª´ÿİ
+N	java:S106,"9Replace this use of System.out or System.err by a logger.(¶¿‹

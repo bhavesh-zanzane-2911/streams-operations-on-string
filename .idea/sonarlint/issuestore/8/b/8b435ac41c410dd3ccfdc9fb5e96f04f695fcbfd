@@ -1,0 +1,12 @@
+
+b
+java:S1854
+"GRemove this useless assignment to local variable "availableProcessors".(®ÅÕ‰ýÿÿÿÿ
+S
+java:S1481
+"8Remove this unused "availableProcessors" local variable.(®ÅÕ‰ýÿÿÿÿ
+P	java:S125"<This block of commented-out lines of code should be removed.(¢‰£
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÃÇÀ“
+S	java:S106"9Replace this use of System.out or System.err by a logger.(š—“¿ÿÿÿÿÿ
+N
+java:S1128"8Remove this unused import 'java.util.function.Function'.(»³Íž
