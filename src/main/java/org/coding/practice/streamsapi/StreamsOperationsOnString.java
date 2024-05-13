@@ -1,5 +1,8 @@
 package org.coding.practice.streamsapi;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -7,6 +10,8 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class StreamsOperationsOnString {
+
+    private static final Logger LOG = LoggerFactory.getLogger(StreamsOperationsOnString.class);
     public static String getReversedString(String inputString) {
         //Reverse a String
         String reveredString = inputString.chars()
@@ -14,14 +19,14 @@ public class StreamsOperationsOnString {
                 .reduce((s1, s2) -> s2 + s1)
                 .orElse("");
 
-        System.out.println("Reversed String :" + reveredString);
+        LOG.info("Reversed String : {}", reveredString);
 
         //Step by Step return working
         IntStream chars = inputString.chars();//convert to chars to IntStream
         Stream<String> stringStream = chars.mapToObj(c -> String.valueOf((char) c));//convert from IntStream to Stream of String of each Character
         Optional<String> reversedStringOptional = stringStream.reduce((s1, s2) -> s2 + s1);
         String reversedStringToReturn = reversedStringOptional.orElse("");
-        System.out.println("Reversed String After Step By Step Approach:" + reversedStringToReturn);
+        LOG.info("Reversed String After Step By Step Approach: {}",reversedStringToReturn);
         return reversedStringToReturn;
     }
 
@@ -31,14 +36,14 @@ public class StreamsOperationsOnString {
                 .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
 
-        System.out.println(characterAndTheirCountMap);
+        LOG.info("{}", characterAndTheirCountMap);
 
         IntStream chars = inputString.chars();
         Stream<Character> characterStream = chars.mapToObj(c -> (char) c);
         LinkedHashMap<Character, Long> characterAndTheirCountMapAsPerInputCharacterOrder = characterStream
                 .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::new, Collectors.counting()));
 
-        System.out.println(characterAndTheirCountMapAsPerInputCharacterOrder);
+        LOG.info("{}", characterAndTheirCountMapAsPerInputCharacterOrder);
 
         return characterAndTheirCountMap;
     }
@@ -53,7 +58,7 @@ public class StreamsOperationsOnString {
                 .map(Map.Entry::getKey)
                 .findFirst();
         Character character = first.get();
-        System.out.println("First Repeated Character " + character);
+        LOG.info("First Repeated Character {}", character);
 
         Set<Map.Entry<Character, Long>> entries = characterAndTheirCountMap.entrySet();
         Stream<Map.Entry<Character, Long>> stream = entries.stream();
@@ -74,7 +79,7 @@ public class StreamsOperationsOnString {
                 .map(entry -> entry.getKey())
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("Not Found"));
-        System.out.println(singleCharacter);
+        LOG.info("{}", singleCharacter);
 
         Set<Map.Entry<Character, Long>> entries = characterAndTheirCountMap.entrySet();
         Stream<Map.Entry<Character, Long>> stream = entries.stream();
