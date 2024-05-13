@@ -7,9 +7,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamsOperationsOnArrayOfString {
-    private static final Logger LOG = LoggerFactory.getLogger(StreamsOperationsOnString.class);
+    private static final Logger LOG = LoggerFactory.getLogger(StreamsOperationsOnArrayOfString.class);
     public static void main(String[] args) {
-        String s1 = "Bhavesh Zanzane";
 
         String s2="Bhavesh zanzane ABCD";
         String concat = s2.concat(" ");
