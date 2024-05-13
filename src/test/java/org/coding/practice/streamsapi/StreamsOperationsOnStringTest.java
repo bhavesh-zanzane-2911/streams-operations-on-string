@@ -3,6 +3,7 @@ package org.coding.practice.streamsapi;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -92,5 +93,31 @@ class StreamsOperationsOnStringTest {
                 = StreamsOperationsOnString.getFirstNonRepeatedCharacter(inputString);
         //Then
         assertEquals('A', firstNonRepeatatingCharacter);
+    }
+
+    @Test
+    void testGetMaxOccurredCharacter() {
+
+        //Given
+        String inputString = "AaBbbCcccDddddEeeeee";
+
+        //When
+        Map.Entry<Character, Long> maxOccurredCharacter = StreamsOperationsOnString.getMaxOccurredCharacter(inputString);
+        //Then
+        assertEquals('e', maxOccurredCharacter.getKey());
+        assertEquals(5, maxOccurredCharacter.getValue());
+    }
+
+    @Test
+    void testGetMinOccurredCharacter() {
+
+        //Given
+        String inputString = "AaBbbCcccDddddEeeeee";
+
+        //When
+        Map.Entry<Character, Long> maxOccurredCharacter = StreamsOperationsOnString.getMinOccurredCharacter(inputString);
+        //Then
+        assertEquals('A', maxOccurredCharacter.getKey());
+        assertEquals(1, maxOccurredCharacter.getValue());
     }
 }

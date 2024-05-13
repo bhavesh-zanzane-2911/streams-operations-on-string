@@ -92,4 +92,30 @@ public class StreamsOperationsOnString {
         return firstNonRepeatedCharacter;
 
     }
+
+    public static Map.Entry<Character, Long> getMaxOccurredCharacter(String inputString) {
+        LinkedHashMap<Character, Long> characterAndTheirCountMap = getCharacterLongLinkedHashMap(inputString);
+
+        //Optional<Map.Entry<Character, Long>> maxOccuredCharacter = characterAndTheirCountMap.entrySet().stream()
+        //        .max(Map.Entry.comparingByValue());
+
+        Map.Entry<Character, Long> maxOccurredCharacter = characterAndTheirCountMap.entrySet().stream()
+                .max((c1,c2)->c1.getValue().compareTo(c2.getValue()))
+                .orElseThrow(() -> new RuntimeException("No character found"));;
+        LOG.info("{}", maxOccurredCharacter);
+        return maxOccurredCharacter;
+    }
+
+    public static Map.Entry<Character, Long> getMinOccurredCharacter(String inputString) {
+        LinkedHashMap<Character, Long> characterAndTheirCountMap = getCharacterLongLinkedHashMap(inputString);
+
+        //Optional<Map.Entry<Character, Long>> maxOccuredCharacter = characterAndTheirCountMap.entrySet().stream()
+        //        .min(Map.Entry.comparingByValue());
+
+        Map.Entry<Character, Long> minOccurredCharacter = characterAndTheirCountMap.entrySet().stream()
+                .min((c1,c2)->c1.getValue().compareTo(c2.getValue()))
+                .orElseThrow(() -> new RuntimeException("No character found"));;
+        LOG.info("{}", minOccurredCharacter);
+        return minOccurredCharacter;
+    }
 }
